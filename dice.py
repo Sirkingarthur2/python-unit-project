@@ -47,5 +47,5 @@ class Dice():
         print()
     for die in dice:
         total += die
-    print(f"total: {total}")
+    print(f"total: {total}\n")
     return total

@@ -10,8 +10,8 @@ import random
 
 def start():
     # Welcome message - (needs fonts, emojis, etc)
-    print("Welcome to Wizard 102!!")
-    print("Here is a list of classes!")
+    print("\nWelcome to Wizard 102!!")
+    print("Here is the list of classes:")
     print(
         """
         [Fire] - A Pyromancer that deals large damage and has a normal amount of health (the most rounded mage).
@@ -20,7 +20,7 @@ def start():
         [Earth] - A geomancer having increased hp and sustainability (deals less damage).
                                                                                                                       """
     )
-    print("Keep in mind that you only get 1 heal from your cleric! Use it to your advantage.")
+    print("Keep in mind that you only get 1 heal from your cleric! Use it to your advantage. \n")
 
 def winner(player1_list, player2_list, name1, name2):
     if player1_list[0].health <= 0:
@@ -135,12 +135,12 @@ def spell_desc(): ## This function holds all of the descriptions for each abilit
 
 def player1_choice(): ## This function grabs the players choice of mage types.
     while True:
-        class_decider = input("Choose your class:")
+        class_decider = input("Choose your class: ")
         if class_decider.lower() == "fire":
             fire_mage = stat_classes.Fire(False)
             fire_desc = ability_desc.fire_desc()
             mage_type = "fire"
-            print("You have chosen Fire Mage!\n")
+            print("\nYou have chosen Fire Mage!\n\n")
             fire_list = [fire_mage, fire_desc, mage_type]
             return fire_list
 
@@ -148,7 +148,7 @@ def player1_choice(): ## This function grabs the players choice of mage types.
             ice_mage = stat_classes.Ice(False)
             ice_desc = ability_desc.ice_desc()
             mage_type = "ice"
-            print("You have chosen Ice Mage!\n")
+            print("\nYou have chosen Ice Mage!\n\n")
             ice_list = [ice_mage, ice_desc, mage_type]
             return ice_list
 
@@ -174,7 +174,7 @@ def player1_choice(): ## This function grabs the players choice of mage types.
 
 def player2_choice(): ## This is the same function as above but for player 2. (could be counter intuitive but it helped me seperate my thought proccess better.)
     while True:
-        class_decider = input("Choose your class:")
+        class_decider = input("Choose your class: ")
         if class_decider.lower() == "fire":
             fire_mage = stat_classes.Fire(False)
             fire_desc = ability_desc.fire_desc()
@@ -251,14 +251,14 @@ def fight(name1, name2, player1_list, player2_list):
     if player1_list[0].turn == True:
         while True:
             if player1_list[0].health > 0 and player2_list[0].health > 0:
-                print(f"{name1.capitalize()}'s turn to do damage!")
+                print(f"{name1.capitalize()}'s turn to do damage!\n")
                 print(
-                    f"{name1.capitalize()}\nHEALTH: {player1_list[0].health:.2f}\nCHARGE: {player1_list[0].charge}"
+                    f"{name1.capitalize()}\n\nHEALTH: {player1_list[0].health:.2f}\nCHARGE: {player1_list[0].charge}\n"
                 )
                 print(
-                    f"{name2.capitalize()}\nHEALTH: {player2_list[0].health:.2f}\nCHARGE: {player2_list[0].charge}"
+                    f"{name2.capitalize()}\n\nHEALTH: {player2_list[0].health:.2f}\nCHARGE: {player2_list[0].charge}\n"
                 )
-                game_option = input("Would you like to [fight] or [heal]")
+                game_option = input("Would you like to [fight] or [heal]? ")
                 if game_option == "fight":
                     print(f"Choose your spell {name1.capitalize()}")
                     print(
@@ -1123,14 +1123,14 @@ def fight(name1, name2, player1_list, player2_list):
     elif player2_list[0].turn == True:
         while True:
             if player2_list[0].health > 0 and player1_list[0].health > 0:
-                print(f"{name2.capitalize()}'s turn to do damage!")
+                print(f"{name2.capitalize()}'s turn to do damage!\n")
                 print(
-                    f"{name1.capitalize()}\nHEALTH: {player1_list[0].health:.2f}\nCHARGE: {player1_list[0].charge}"
+                    f"{name1.capitalize()}\nHEALTH: {player1_list[0].health:.2f}\nCHARGE: {player1_list[0].charge}\n"
                 )
                 print(
-                    f"{name2.capitalize()}\nHEALTH: {player2_list[0].health:.2f}\nCHARGE: {player2_list[0].charge}"
+                    f"{name2.capitalize()}\nHEALTH: {player2_list[0].health:.2f}\nCHARGE: {player2_list[0].charge}\n"
                 )
-                game_option = input("Would you like to [fight] or [heal]")
+                game_option = input("Would you like to [fight] or [heal]? ")
                 if game_option == "fight":
                     print(f"Choose your spell {name2.capitalize()}")
                     print(
@@ -1980,19 +1980,19 @@ def fight(name1, name2, player1_list, player2_list):
 
 def main(): ## Main function compiling all of our functions that we created and 
     player_turn_winner = ""
-    print("Before you start we will need your names (only 2 players allowed).")
+    print("\nBefore you start we will need your names (only 2 players allowed). \n")
     name1 = input("Player 1: ")
     name2 = input("Player 2: ")
     while True:
-      see_abilities_desc = input(f"Would you like to look at all abilities [ y(es) ] or [ any other key ] ")
+      see_abilities_desc = input(f"\nWould you like to look at all abilities [y]es or [ any other key ] ")
       if see_abilities_desc != "y" and see_abilities_desc != "yes":
           break
       spell_desc()
     start()
-    print(f"Choose your mage {name1.capitalize()}")
+    print(f"Choose your mage, {name1.capitalize()}. \n")
     player1_list = player1_choice()
     while True:
-        print(f"Choose your mage {name2.capitalize()}")
+        print(f"Choose your mage, {name2.capitalize()}. \n")
         player2_list = player2_choice()
         if player2_list == player1_list:
             print("This class is taken.")
